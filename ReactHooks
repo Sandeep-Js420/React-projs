@@ -1,0 +1,36 @@
+//use of useEffect()-it let us to use the lifeCylce method in functional component.
+
+//  console.log(' I RUN WITH EVERY RENDER');
+// useEffect(()=>{
+//     console.log(`IRENDER ONLY ONCE`);
+// },[])
+
+// useEffect(()=>{
+//  console.log(`I RUN AFTER EVERY RENDER AND INTIAL RENDER `);   
+// })
+
+// useEffect(()=>{
+//     console.log(`Run at intialRender & when  the component`);   
+//    },[term])
+
+
+
+we are not allowed to use async keyword in useEffect callback function like this below
+
+useEffect( async ()=>{
+    await axios.get('sfdfsfsf');
+
+})
+
+insted of this we can write like below 
+
+useEffect(()=>{
+    const search=async ()=>{
+        await axios.get('sdsd');
+    }
+    search();
+})
+or
+useEffect(()=>{
+    (async()=>{await axios.get('ddsd')})()
+})
