@@ -43,7 +43,7 @@ if(term && !result.length){
             search();
         }
     },4000)
-
+      console.log(timerId);
     return ()=>{
         clearTimeout(timerId);
     }

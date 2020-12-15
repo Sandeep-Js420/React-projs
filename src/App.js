@@ -1,7 +1,9 @@
 import React from 'react'
 /* import Accordion from './Components/Accordion/Accordion'
 import Search from './Components/Search/Search';
- */import Dropdown from './Components/DropDown/Dropdown';
+ */
+import Dropdown from './Components/DropDown/Dropdown';
+import DropDown_1 from './Components/DropDown/Dropdown_1';
 import { useState } from 'react'
 const items=[
     {
@@ -27,15 +29,22 @@ const options=[
 const WidgetApp=()=>{
 
     const [selected,setSelected]=useState(options[0]);
+    const [showDropDown,setShowDropDown]=useState(true);
     return (
 
         <div>
         {/* <Search /> */}
-        <Dropdown   options={options} 
+        {/* <Dropdown   options={options} 
                     onSelectOptions={setSelected} 
-                    selected={selected}/>
-        </div> 
-       
+                    selected={selected}/> */}
+         <button onClick={()=>{setShowDropDown(!showDropDown)}}>Toggle here</button>
+         { showDropDown?
+             <DropDown_1 options={options} 
+                       selected={selected}
+                       onSelectedOptions={setSelected}    
+                           />
+        :null}
+    </div>  
     )
 }
 export default WidgetApp;
